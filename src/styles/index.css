@@ -1,0 +1,428 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.App {
+  min-height: 100vh;
+}
+
+body {
+  font-size: 14px;
+  font-family: "Nunito Sans", sans-serif;
+  background: #fafafa;
+}
+
+header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px 50px;
+  background: white;
+  -webkit-box-shadow: 0 2px 14px gainsboro;
+          box-shadow: 0 2px 14px gainsboro;
+  z-index: 999;
+}
+
+header h1 {
+  font-size: x-large;
+}
+
+.body {
+  position: relative;
+}
+
+.subHeader {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 20px 50px;
+  padding-bottom: 0;
+}
+
+.subHeader .search {
+  padding: 15px;
+  -webkit-box-shadow: 0 5px 14px gainsboro;
+          box-shadow: 0 5px 14px gainsboro;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: white;
+}
+
+.subHeader .search__input {
+  all: unset;
+  background: white;
+  min-width: 300px;
+}
+
+.subHeader .search svg {
+  margin-right: 20px;
+  width: 20px;
+}
+
+.subHeader .filter {
+  background: white;
+  border: 0;
+  padding: 10px;
+  -webkit-box-shadow: 0 0 14px gainsboro;
+          box-shadow: 0 0 14px gainsboro;
+  border-radius: 5px;
+  outline: none;
+  text-transform: capitalize;
+}
+
+.countries {
+  overflow: auto;
+  height: calc(100vh - 180px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 15px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.countries__country {
+  -webkit-animation: slide 0.3s forwards;
+          animation: slide 0.3s forwards;
+  opacity: 0;
+  width: 250px;
+  margin: 20px 10px;
+  border-radius: 5px;
+  overflow: hidden;
+  -webkit-box-shadow: 0 2px 14px gainsboro;
+          box-shadow: 0 2px 14px gainsboro;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.countries__country:hover {
+  -webkit-transform: translateY(-8px);
+          transform: translateY(-8px);
+  -webkit-box-shadow: 0 10px 14px #999898;
+          box-shadow: 0 10px 14px #999898;
+}
+
+.countries__country img {
+  display: inline-block;
+  width: 100%;
+  min-height: 166px;
+  border-radius: 5px;
+}
+
+.countries__country__name {
+  padding: 15px;
+  padding-bottom: 0;
+}
+
+.countries__country__details {
+  padding: 15px;
+  padding-bottom: 45px;
+}
+
+.countries__country__details p span {
+  font-weight: 900;
+  font-size: initial;
+}
+
+.countryDetails {
+  position: fixed;
+  top: 62px;
+  left: 50px;
+  height: calc(100vh - 62px);
+  width: 100%;
+  background: #fafafa;
+  padding: 25px;
+  overflow: auto;
+  opacity: 0;
+  -webkit-animation: slide 0.3s 0.3s forwards;
+          animation: slide 0.3s 0.3s forwards;
+  z-index: 999;
+}
+
+.countryDetails .btn {
+  margin-bottom: 25px;
+}
+
+.countryDetails__country {
+  min-height: calc(100vh - 250px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.countryDetails__country img {
+  width: 50%;
+}
+
+.countryDetails__country__details {
+  width: 35%;
+}
+
+.countryDetails__country__details__essential {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 50px auto;
+  font-size: initial;
+}
+
+.countryDetails__country__details__essential li {
+  width: 50%;
+  margin: 5px auto;
+}
+
+.countryDetails__country__details__essential li span {
+  font-size: large;
+  font-weight: 700;
+}
+
+.countryDetails__country__details__borders {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.countryDetails__country__details__borders .btn {
+  margin: 0 5px;
+  font-size: 14px;
+}
+
+.btn {
+  all: unset;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 10px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0px 5px gainsboro;
+          box-shadow: 0 0px 5px gainsboro;
+}
+
+.btn svg {
+  width: 16px;
+  margin-right: 5px;
+}
+
+.more {
+  width: 100%;
+  padding: 15px;
+  background: white;
+  -webkit-box-shadow: 0 -2px 14px gainsboro;
+          box-shadow: 0 -2px 14px gainsboro;
+  border: 0;
+  outline: none;
+}
+
+.nodata h1 {
+  text-align: center;
+  margin: 50px auto;
+  padding: 20px;
+  background: white;
+  -webkit-box-shadow: 0 0 14px gainsboro;
+          box-shadow: 0 0 14px gainsboro;
+}
+
+@-webkit-keyframes slide {
+  from {
+    opacity: 0;
+    left: 50px;
+  }
+  to {
+    opacity: 1;
+    left: 0;
+  }
+}
+
+@keyframes slide {
+  from {
+    opacity: 0;
+    left: 50px;
+  }
+  to {
+    opacity: 1;
+    left: 0;
+  }
+}
+
+.dark {
+  background: #202c37;
+}
+
+.dark header {
+  background: #2b3945;
+  color: white;
+  -webkit-box-shadow: 0 2px 14px #424242;
+          box-shadow: 0 2px 14px #424242;
+}
+
+.dark .btn {
+  -webkit-box-shadow: 0 0 14px #151a1f;
+          box-shadow: 0 0 14px #151a1f;
+}
+
+.dark .btn svg {
+  fill: white;
+}
+
+.dark .subHeader .search {
+  background: #2b3945;
+  -webkit-box-shadow: 0 0 14px #151a1f;
+          box-shadow: 0 0 14px #151a1f;
+}
+
+.dark .subHeader .search svg {
+  fill: #f4f4f4;
+}
+
+.dark .subHeader .search input {
+  background: transparent;
+  color: white;
+}
+
+.dark .subHeader .search input::-webkit-input-placeholder {
+  color: #afb3c5;
+}
+
+.dark .subHeader .search input:-ms-input-placeholder {
+  color: #afb3c5;
+}
+
+.dark .subHeader .search input::-ms-input-placeholder {
+  color: #afb3c5;
+}
+
+.dark .subHeader .search input::placeholder {
+  color: #afb3c5;
+}
+
+.dark .subHeader .filter {
+  background: #2b3945;
+  color: white;
+  -webkit-box-shadow: 0 0 14px #363d4a;
+          box-shadow: 0 0 14px #363d4a;
+}
+
+.dark .countries__country {
+  background: #2b3945;
+  color: aliceblue;
+  -webkit-box-shadow: 0 0 14px #151a1f;
+          box-shadow: 0 0 14px #151a1f;
+}
+
+.dark .more {
+  -webkit-box-shadow: 0 0 14px #151a1f;
+          box-shadow: 0 0 14px #151a1f;
+  background: #2b3945;
+  color: white;
+}
+
+.dark .countryDetails {
+  background: #202c37;
+  color: white;
+}
+
+@media screen and (max-width: 600px) {
+  header {
+    padding: 10px;
+  }
+  header h1 {
+    font-size: initial;
+  }
+  header button {
+    font-size: inherit;
+  }
+  .subHeader {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .subHeader .search {
+    margin: 20px auto;
+  }
+  .subHeader .search__input {
+    min-width: auto;
+  }
+  .countryDetails__country img {
+    width: 100%;
+  }
+  .countryDetails__country__details {
+    width: 100%;
+  }
+  .countryDetails__country__details__name {
+    margin-top: 35px;
+  }
+  .countryDetails__country__details__essential li {
+    width: 100%;
+  }
+}
+/*# sourceMappingURL=index.css.map */

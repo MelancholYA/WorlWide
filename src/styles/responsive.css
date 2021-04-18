@@ -1,0 +1,35 @@
+@media screen and (max-width: 600px) {
+  header {
+    padding: 10px;
+  }
+  header h1 {
+    font-size: initial;
+  }
+  header button {
+    font-size: inherit;
+  }
+  .subHeader {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .subHeader .search {
+    margin: 20px auto;
+  }
+  .subHeader .search__input {
+    min-width: auto;
+  }
+  .countryDetails__country img {
+    width: 100%;
+  }
+  .countryDetails__country__details {
+    width: 100%;
+  }
+  .countryDetails__country__details__name {
+    margin-top: 35px;
+  }
+  .countryDetails__country__details__essential li {
+    width: 100%;
+  }
+}
+/*# sourceMappingURL=responsive.css.map */

@@ -1,0 +1,273 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+$dark-Dark_Blue: hsl(209, 23%, 22%);
+$dark-Very_Dark_Blue: hsl(207, 26%, 17%);
+$light-Very_Dark_Blue: hsl(200, 15%, 8%);
+$light-Dark_Gray: hsl(0, 0%, 52%);
+$light-Very_Light_Gray: hsl(0, 0%, 98%);
+$White: hsl(0, 0%, 100%);
+.App {
+  min-height: 100vh;
+}
+body {
+  font-size: 14px;
+  font-family: "Nunito Sans", sans-serif;
+  background: $light-Very_Light_Gray;
+}
+header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 50px;
+  background: white;
+  box-shadow: 0 2px 14px gainsboro;
+  z-index: 999;
+  h1 {
+    font-size: x-large;
+  }
+}
+.body {
+  position: relative;
+}
+.subHeader {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 20px 50px;
+  padding-bottom: 0;
+  .search {
+    padding: 15px;
+    box-shadow: 0 5px 14px gainsboro;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    background: white;
+    &__input {
+      all: unset;
+      background: white;
+      min-width: 300px;
+    }
+    svg {
+      margin-right: 20px;
+      width: 20px;
+    }
+  }
+  .filter {
+    background: white;
+    border: 0;
+    padding: 10px;
+    box-shadow: 0 0 14px gainsboro;
+    border-radius: 5px;
+    outline: none;
+    text-transform: capitalize;
+  }
+}
+.countries {
+  overflow: auto;
+  height: calc(100vh - 180px);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 15px;
+  transition: 0.3s;
+  &__country {
+    animation: slide 0.3s forwards;
+    opacity: 0;
+    width: 250px;
+    margin: 20px 10px;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 14px gainsboro;
+    transition: 0.2s;
+    cursor: pointer;
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 14px rgb(153, 152, 152);
+    }
+    img {
+      display: inline-block;
+
+      width: 100%;
+      min-height: 166px;
+      border-radius: 5px;
+    }
+    &__name {
+      padding: 15px;
+      padding-bottom: 0;
+    }
+    &__details {
+      padding: 15px;
+      padding-bottom: 45px;
+      p {
+        span {
+          font-weight: 900;
+          font-size: initial;
+        }
+      }
+    }
+  }
+}
+.countryDetails {
+  position: fixed;
+  top: 62px;
+  left: 50px;
+  height: calc(100vh - 62px);
+  width: 100%;
+  background: #fafafa;
+  padding: 25px;
+  overflow: auto;
+  opacity: 0;
+  animation: slide 0.3s 0.3s forwards;
+  z-index: 999;
+  .btn {
+    margin-bottom: 25px;
+  }
+  &__country {
+    min-height: calc(100vh - 250px);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    img {
+      width: 50%;
+    }
+    &__details {
+      width: 35%;
+      &__essential {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        margin: 50px auto;
+        font-size: initial;
+        li {
+          width: 50%;
+          margin: 5px auto;
+          span {
+            font-size: large;
+            font-weight: 700;
+          }
+        }
+      }
+      &__borders {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        font-size: 16px;
+        font-weight: 700;
+        .btn {
+          margin: 0 5px;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+.btn {
+  all: unset;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0px 5px gainsboro;
+  svg {
+    width: 16px;
+    margin-right: 5px;
+  }
+}
+.more {
+  width: 100%;
+  padding: 15px;
+  background: white;
+  box-shadow: 0 -2px 14px gainsboro;
+  border: 0;
+  outline: none;
+}
+.nodata {
+  h1 {
+    text-align: center;
+    margin: 50px auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 0 14px gainsboro;
+  }
+}
+@keyframes slide {
+  from {
+    opacity: 0;
+    left: 50px;
+  }
+  to {
+    opacity: 1;
+    left: 0;
+  }
+}
+.dark {
+  background: #202c37;
+
+  header {
+    background: hsl(209, 23%, 22%);
+    color: white;
+    box-shadow: 0 2px 14px #424242;
+  }
+  .btn {
+    box-shadow: 0 0 14px #151a1f;
+  }
+  .btn svg {
+    fill: white;
+  }
+  .subHeader {
+    .search {
+      background: #2b3945;
+      box-shadow: 0 0 14px #151a1f;
+      svg {
+        fill: #f4f4f4;
+      }
+      input {
+        background: transparent;
+        color: white;
+        &::placeholder {
+          color: #afb3c5;
+        }
+      }
+    }
+    .filter {
+      background: #2b3945;
+      color: white;
+      box-shadow: 0 0 14px #363d4a;
+    }
+  }
+  .countries__country {
+    background: #2b3945;
+    color: aliceblue;
+    box-shadow: 0 0 14px #151a1f;
+  }
+  .more {
+    box-shadow: 0 0 14px #151a1f;
+    background: #2b3945;
+    color: white;
+  }
+
+  .countryDetails {
+    background: #202c37;
+    color: white;
+  }
+}
+@import "responsive";

@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
-
+import Header from "./componants/Header";
+import Search from "./componants/Search";
+import Filter from "./componants/Filter";
+import Countries from "./componants/Countries";
+import "./styles/index.css";
+import { ThemeContext } from "./componants/ThemeContext";
+import { useContext } from "react";
 function App() {
+  const { day } = useContext(ThemeContext);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={`App ${day ? null : "dark"}`}>
+      <Header />
+      <div className="body">
+        <div className="subHeader">
+          <Search />
+          <Filter />
+        </div>
+        <Countries />
+      </div>
     </div>
   );
 }
